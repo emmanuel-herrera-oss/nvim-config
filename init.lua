@@ -75,14 +75,21 @@ vim.diagnostic.config(
 vim.lsp.inlay_hint.enable(true)
 require("blink.cmp").setup(
     {
-        --keymap = {preset = "super-tab"},
-				keymap = {
-					preset = 'default',
-					['<CR>'] = { 'select_and_accept', 'fallback' },
-					['<Esc>'] = { 'cancel', 'fallback' },
-					['<Tab>'] = { 'select_next' , 'fallback' },
-					['<S-Tab>'] = { 'select_prev', 'fallback'}
-				},
+        --keymap = {preset = 'super-tab'},
+        keymap = {
+            preset = "default",
+            ["<CR>"] = {"select_and_accept", "fallback"},
+            --['<Esc>'] = { 'cancel', 'fallback' },
+            ["<Esc>"] = {
+                function(cmp)
+                    cmp.cancel()
+                    return false
+                end,
+                "fallback"
+            },
+            ["<Tab>"] = {"select_next", "fallback"},
+            ["<S-Tab>"] = {"select_prev", "fallback"}
+        },
         signature = {
             enabled = true,
             window = {
@@ -106,7 +113,7 @@ require("blink.cmp").setup(
         },
         sources = {
             default = {"lsp", "path", "buffer"}
-        },
+        }
     }
 )
 vim.keymap.set(
