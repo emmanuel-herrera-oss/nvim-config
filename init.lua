@@ -107,10 +107,6 @@ require("blink.cmp").setup(
         sources = {
             default = {"lsp", "path", "buffer"}
         },
-        cmdline = {
-            keymap = {preset = "inherit"},
-            completion = {menu = {auto_show = true}}
-        }
     }
 )
 vim.keymap.set(
