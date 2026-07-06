@@ -76,6 +76,8 @@ vim.cmd('colorscheme everforest')
 
 vim.lsp.enable('clangd')
 vim.lsp.enable('lua-language-server')
+vim.lsp.enable('typescript-language-server')
+vim.lsp.enable('roslyn-language-server')
 
 vim.diagnostic.config(
 	{
