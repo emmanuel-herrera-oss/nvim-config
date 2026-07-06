@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd('BufWritePre', {
-	pattern = { '*.c', '*.cpp', '*.cxx', '*.h', '*.hpp', '*.hxx', '*.ts', '*.tsx', '*.lua' },
+	pattern = { '*.c', '*.cc', '*.cpp', '*.cxx', '*.h', '*.hpp', '*.hxx', '*.ts', '*.tsx', '*.lua' },
 	callback = function()
 		vim.lsp.buf.format({ async = false })
 	end
@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end
 })
 return {
-	cmd = { 'clangd' },
+	cmd = { 'clangd', '--fallback-style=Google' },
 	filetypes = { 'cpp', 'c' },
 	root_markers = { 'compile_commands.json', 'Makefile', '.git', 'CMakeLists.txt' }
 }
