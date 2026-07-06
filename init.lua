@@ -1,3 +1,4 @@
+vim.opt.splitright = true
 vim.opt.clipboard = 'unnamedplus'
 vim.g.mapleader = ' '
 vim.opt.tabstop = 2
